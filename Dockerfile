@@ -12,9 +12,12 @@ RUN rm -rf /var/www/html
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN composer install
+#RUN composer install
 
 COPY . /var/www
+
+RUN composer install
+
 RUN ln -s public html
 
 EXPOSE 9000
